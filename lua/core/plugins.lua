@@ -21,9 +21,13 @@ require("lazy").setup({
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
-    opt = {},
+    opts = {},
   },
   "windwp/nvim-autopairs",
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+  },
   
   -- LSP 
   "williamboman/mason.nvim",
