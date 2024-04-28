@@ -1,0 +1,6 @@
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>sf', builtin.find_files, {})
+vim.keymap.set('n', '<leader>st', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>sb', builtin.buffers, {})
+vim.keymap.set('n', "<leader>sr", builtin.oldfiles, {})
+vim.api.nvim_set_keymap('n', '<leader>ff', ":lua require('telescope.builtin').find_files({previewer = false})<CR>", {})
