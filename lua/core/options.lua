@@ -17,3 +17,4 @@ vim.opt.showcmd = false
 vim.cmd("cd %:p:h")
 
 vim.g.mapleader = " "
+vim.o.shortmess = vim.o.shortmess .. 'I' -- Disables Neovim intro message screen
