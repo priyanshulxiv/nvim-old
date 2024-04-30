@@ -13,6 +13,5 @@ vim.keymap.set("n", "<C-S>", ":source %<CR>", { silent = true })
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', {noremap = true})
 
 -- Remap Ctrl+p and Ctrl+n for navigation to arrow keys
-vim.api.nvim_set_keymap('n', '<C-p>', '<Up>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<C-n>', '<Down>', {noremap = true})
-
+vim.cmd('cnoremap <up> <c-p>')
+vim.cmd('cnoremap <down> <c-n>')

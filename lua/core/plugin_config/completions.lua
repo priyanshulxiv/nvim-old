@@ -4,7 +4,6 @@ local lspkind = require('lspkind')
 require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup({
-  menu_width = 40,
   mapping = cmp.mapping.preset.insert({
       ['<C-u>'] = cmp.mapping.scroll_docs(-4),
       ['<C-d>'] = cmp.mapping.scroll_docs(4),
@@ -23,7 +22,11 @@ cmp.setup({
     { name = 'luasnip' },
     { name = 'buffer' },
   },
-
+  window = {
+    completion = cmp.config.window.bordered({
+      border = "rounded",
+    })
+  },
   formatting = {
     format = lspkind.cmp_format({
       with_text = true,
@@ -35,6 +38,6 @@ cmp.setup({
         path = '[PATH]',
         luasnip = '[SNIP]',
       },
-    })
+    }),
   },
 })
