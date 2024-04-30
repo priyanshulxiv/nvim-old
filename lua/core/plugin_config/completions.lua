@@ -1,8 +1,10 @@
 local cmp = require("cmp")
+local lspkind = require('lspkind')
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup({
+  menu_width = 40,
   mapping = cmp.mapping.preset.insert({
       ['<C-u>'] = cmp.mapping.scroll_docs(-4),
       ['<C-d>'] = cmp.mapping.scroll_docs(4),
@@ -20,5 +22,19 @@ cmp.setup({
     { name = 'nvim_lua' },
     { name = 'luasnip' },
     { name = 'buffer' },
+  },
+
+  formatting = {
+    format = lspkind.cmp_format({
+      with_text = true,
+      maxwidth = 50,
+      menu = {
+        buffer = '[BUF]',
+        nvim_lsp = '[LSP]',
+        nvim_lua = '[API]',
+        path = '[PATH]',
+        luasnip = '[SNIP]',
+      },
+    })
   },
 })

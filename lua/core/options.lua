@@ -5,6 +5,7 @@ vim.opt.shiftwidth = 2
 vim.opt.laststatus = 3
 vim.opt.expandtab = true -- Convert tabs to spaces
 vim.opt.pumheight = 10 -- Pop-up window height
+vim.o.pumwidth = 30
 vim.opt.signcolumn = "yes" -- Always show the sign column, otherwise it would shift the text each time
 vim.opt.smartindent = true
 vim.opt.cursorline = true
