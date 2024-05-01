@@ -29,6 +29,11 @@ require("lazy").setup({
     dependencies = { 'nvim-tree/nvim-web-devicons' }
   },
   'terrortylor/nvim-comment',
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {}
+  },
 
   -- LSP 
   "williamboman/mason.nvim",
