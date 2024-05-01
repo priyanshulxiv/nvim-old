@@ -1,10 +1,10 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "tsserver" },
+  ensure_installed = { "lua_ls", "tsserver", "clangd" },
   lazy = false,
-    opts = {
-      auto_install = true,
-    },
+  opts = {
+    auto_install = true,
+  },
 })
 
 local langservers = {
@@ -13,6 +13,7 @@ local langservers = {
   'clangd',
   'tsserver',
   'lua_ls',
+  "pyright",
 }
 
 local on_attach = function(client, bufnr)
@@ -36,7 +37,7 @@ require'lspconfig'.lua_ls.setup{
       },
     },
     runtime = {
-        version = "LuaJIT"
+      version = "LuaJIT"
     }
   }
 }

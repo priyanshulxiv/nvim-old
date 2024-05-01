@@ -10,24 +10,8 @@ require("ibl").setup({
     priority = 1024,
     include = {
       node_type = {
-        ["*"] = {
-          "arguments",
-          "block",
-          "bracket",
-          "declaration",
-          "expression_list",
-          "field",
-          "for",
-          "func_literal",
-          "function",
-          "if",
-          "import",
-          "list",
-          "return_statement",
-          "short_var_declaration",
-          "switch_body",
-          "try",
-          "type",
+        ["*"] = { 
+          "*", 
         },
       },
     },
