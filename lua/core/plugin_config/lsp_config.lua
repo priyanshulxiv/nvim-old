@@ -14,7 +14,8 @@ local langservers = {
   'tsserver',
   'lua_ls',
   "pyright",
-  "emmet_language_server"
+  "emmet_language_server",
+  "csharp_ls"
 }
 
 local on_attach = function(client, bufnr)
