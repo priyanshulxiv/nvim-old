@@ -47,12 +47,3 @@ require'lspconfig'.lua_ls.setup{
 require'lspconfig'.emmet_language_server.setup{
   filetypes = { "css", "eruby", "html", "htmldjango", "javascriptreact", "less", "pug", "sass", "scss", "typescriptreact", "php" },
 }
-require'lspconfig'.cssls.setup{
-  filetypes = { "html", "css", "php", "scss", "less"},
-}
-require'lspconfig'.html.setup{
-  filetypes = { "html", "css", "php" },
-}
-require'lspconfig'.tsserver.setup{
-  filetypes = { "html", "php", "javascript", "typescript", "vue"},
-}
