@@ -16,6 +16,7 @@ local langservers = {
   "pyright",
   "emmet_language_server",
   "omnisharp",
+  "intelephense"
 }
 
 local on_attach = function(client, bufnr)
@@ -42,4 +43,16 @@ require'lspconfig'.lua_ls.setup{
       version = "LuaJIT"
     }
   }
+}
+require'lspconfig'.emmet_language_server.setup{
+  { "css", "eruby", "html", "htmldjango", "javascriptreact", "less", "pug", "sass", "scss", "typescriptreact", "php" },
+}
+require'lspconfig'.cssls.setup{
+  filetypes = { "html", "css", "php", "scss", "less"},
+}
+require'lspconfig'.html.setup{
+  filetypes = { "html", "css", "php" },
+}
+require'lspconfig'.tsserver.setup{
+  filetypes = { "html", "php", "javascript", "typescript", "vue"},
 }
