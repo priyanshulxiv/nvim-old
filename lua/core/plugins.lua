@@ -28,7 +28,7 @@ require("lazy").setup({
     "nvim-lualine/lualine.nvim",
     dependencies = { 'nvim-tree/nvim-web-devicons' }
   },
-  'terrortylor/nvim-comment',
+  "numToStr/Comment.nvim",
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
