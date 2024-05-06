@@ -12,6 +12,7 @@ vim.opt.cursorline = true
 vim.opt.swapfile = false
 vim.opt.undofile = true
 vim.opt.wrap = false
+vim.opt.autochdir = true
 
 vim.opt.showcmd = false
 

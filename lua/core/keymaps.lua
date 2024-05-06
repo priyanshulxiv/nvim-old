@@ -1,4 +1,3 @@
-vim.keymap.set("n", "<leader>a", ":set autochdir<CR>", { silent = true })
 vim.keymap.set("n", "<leader>h", ":set nohlsearch<CR>", { silent = true })
 vim.keymap.set("n", "|", ":vsplit<CR>", { silent = true })
 vim.keymap.set("n", "-", ":split<CR>", { silent = true })
