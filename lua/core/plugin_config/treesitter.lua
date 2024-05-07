@@ -8,7 +8,7 @@ require'nvim-treesitter.configs'.setup {
   },
   indent = {
     enable = true,
-    disable = {"html", "css", "python"}
+    -- disable = {"python"}
   },
   autopairs = {
     enable = true
