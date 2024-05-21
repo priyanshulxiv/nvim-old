@@ -5,3 +5,6 @@ require("gruvbox").setup({
   },
 })
 vim.cmd("colorscheme gruvbox")
+
+-- Change cursorline color
+vim.cmd [[highlight CursorLine guibg=#2d2e33]]
