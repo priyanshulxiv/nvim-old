@@ -15,7 +15,7 @@ local langservers = {
   'lua_ls',
   "pyright",
   "emmet_language_server",
-  "omnisharp",
+  "csharp_ls",
   "intelephense"
 }
 
