@@ -15,6 +15,19 @@ require("nvim-tree").setup({
   },
   renderer = {
     group_empty = true,
+    icons = {
+      glyphs = {
+        git = {
+          unstaged = "U",
+          staged = "S",
+          unmerged = "UM",
+          renamed = "R",
+          untracked = "UT",
+          deleted = "D",
+          ignored = "I",
+        }
+      }
+    }
   },
   filters = {
     dotfiles = false,
@@ -23,7 +36,7 @@ require("nvim-tree").setup({
   update_focused_file = {
     enable = true,
     update_cwd = true,
-  }
+  },
 })
 
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { silent = true })
