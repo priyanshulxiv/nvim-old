@@ -20,3 +20,9 @@ vim.cmd("cd %:p:h")
 
 vim.g.mapleader = " "
 vim.o.shortmess = vim.o.shortmess .. 'I' -- Disables Neovim intro message screen
+
+-- Set indentation settings for Python files
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "python",
+    command = "setlocal tabstop=2 shiftwidth=2 expandtab"
+})
