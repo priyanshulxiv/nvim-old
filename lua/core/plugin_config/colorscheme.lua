@@ -14,3 +14,6 @@ vim.cmd [[highlight SignColumn guibg=#1D1E22]]
 
 --Change numbercolumn color
 vim.cmd [[highlight CursorLineNr guibg=#2d2e33]]
+
+--Change completions menu background color
+vim.cmd [[highlight PMenu guibg=#3c3d42]]

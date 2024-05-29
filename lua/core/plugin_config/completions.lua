@@ -21,11 +21,11 @@ cmp.setup({
     { name = 'luasnip' },
     { name = 'buffer' },
   },
-  window = {
+  --[[ window = {
     completion = cmp.config.window.bordered({
       border = "rounded",
     })
-  },
+  }, ]]
   formatting = {
     format = lspkind.cmp_format({
       with_text = true,

@@ -33,6 +33,8 @@ for _, server in ipairs(langservers) do
 end
 
 require'lspconfig'.lua_ls.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     Lua = {
       diagnostics = {
