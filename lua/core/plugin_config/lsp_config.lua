@@ -12,9 +12,7 @@ local langservers = {
   'cssls',
   'clangd',
   'tsserver',
-  'lua_ls',
   "pyright",
-  "emmet_language_server",
   "csharp_ls",
   "intelephense"
 }
@@ -47,5 +45,7 @@ require'lspconfig'.lua_ls.setup{
   }
 }
 require'lspconfig'.emmet_language_server.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
   filetypes = { "css", "eruby", "html", "htmldjango", "javascriptreact", "less", "pug", "sass", "scss", "typescriptreact", "php" },
 }
