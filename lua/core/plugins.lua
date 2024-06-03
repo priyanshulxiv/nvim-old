@@ -24,6 +24,7 @@ require("lazy").setup({
     opts = {},
   },
   "windwp/nvim-autopairs",
+  "windwp/nvim-ts-autotag",
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { 'nvim-tree/nvim-web-devicons' }
