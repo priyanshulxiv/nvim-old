@@ -14,4 +14,8 @@ cmp.event:on(
 )
 
 -- HTML Autotag
-require('nvim-ts-autotag').setup()
+require('nvim-ts-autotag').setup({
+  opts = {
+    enable_rename = false,
+  }
+})
