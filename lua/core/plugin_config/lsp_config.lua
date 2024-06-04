@@ -18,8 +18,9 @@ local langservers = {
 }
 
 local on_attach = function(client, bufnr)
-  vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, {})
-  vim.keymap.set("n", "<S-K>", vim.lsp.buf.hover, {})
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, bufopts) 
+  vim.keymap.set("n", "<S-K>", vim.lsp.buf.hover, bufopts) 
 end
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
