@@ -11,8 +11,10 @@ vim.opt.smartindent = true
 vim.opt.cursorline = true
 vim.opt.swapfile = false
 vim.opt.undofile = true
-vim.opt.wrap = false
 vim.opt.autochdir = true
+vim.opt.wrap = true
+vim.opt.breakindent = true
+vim.opt.linebreak = true
 
 vim.opt.showcmd = false
 
