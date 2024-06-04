@@ -12,10 +12,3 @@ cmp.event:on(
   'confirm_done',
   cmp_autopairs.on_confirm_done()
 )
-
--- HTML Autotag
-require('nvim-ts-autotag').setup({
-  opts = {
-    enable_rename = false,
-  }
-})
