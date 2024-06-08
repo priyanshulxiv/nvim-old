@@ -40,6 +40,7 @@ require("lazy").setup({
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
   "neovim/nvim-lspconfig",
+  "j-hui/fidget.nvim",
 
   -- Completion
   "hrsh7th/nvim-cmp",
