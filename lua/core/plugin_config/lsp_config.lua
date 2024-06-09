@@ -17,12 +17,15 @@ local langservers = {
   "intelephense"
 }
 
+local capabilities_ = vim.lsp.protocol.make_client_capabilities()
+capabilities_.textDocument.completion.completionItem.snippetSupport = true
+
 local on_attach = function(client, bufnr)
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
   vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, bufopts) 
   vim.keymap.set("n", "<S-K>", vim.lsp.buf.hover, bufopts) 
 end
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities_)
 
 for _, server in ipairs(langservers) do
   require'lspconfig'[server].setup{
