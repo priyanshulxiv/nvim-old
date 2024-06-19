@@ -5,7 +5,7 @@ vim.keymap.set("n", "Q", ":bprevious<CR>", { silent = true })
 vim.keymap.set("n", "E", ":bnext<CR>", { silent = true })
 vim.keymap.set("n", "<leader>w", ":w<CR>", { silent = true })
 vim.keymap.set("n", "<leader>q", ":bd<CR>", { silent = true })
-vim.keymap.set("n", "<C-x>", ":bd!<CR>", { silent = true })
+vim.keymap.set("n", "<C-q>", ":bd!<CR>", { silent = true })
 vim.keymap.set("n", "<C-S>", ":source %<CR>", { silent = true })
 vim.keymap.set("n", "<a-z>", ":set wrap!<CR>", { silent = true }) -- Toggle Word Wrap
 
