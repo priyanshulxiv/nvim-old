@@ -1,4 +1,5 @@
 require('gitsigns').setup({
+  update_debounce = 0,
   signs = {
     add = { text = "a" },
     change = { text = "c" },
