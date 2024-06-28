@@ -2,6 +2,7 @@ vim.opt.termguicolors = true
 require("bufferline").setup({
   options = {
     event = "VimEnter",
+    always_show_bufferline = false,
     offsets = {
       {
         filetype = "NvimTree",
