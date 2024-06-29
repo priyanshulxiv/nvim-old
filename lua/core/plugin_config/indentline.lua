@@ -3,6 +3,7 @@ require("ibl").setup({
     highlight = { "IblWhitespace" }, 
     char = "▏", 
   },
+  exclude = { filetypes = {"markdown", "text"} },
   scope = {
     show_start = false,
     show_end = false,
