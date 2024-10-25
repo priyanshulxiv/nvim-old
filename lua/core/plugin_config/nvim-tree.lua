@@ -14,7 +14,7 @@ require("nvim-tree").setup({
     width = 30,
   },
   renderer = {
-    group_empty = true,
+    group_empty = false,
     icons = {
       glyphs = {
         git = {
