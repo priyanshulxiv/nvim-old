@@ -30,7 +30,7 @@ require("nvim-tree").setup({
     }
   },
   filters = {
-    dotfiles = false,
+    dotfiles = true,
   },
   -- This updates Nvim-Tree root directory to original everytime I go back
   update_focused_file = {
