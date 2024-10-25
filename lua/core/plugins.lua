@@ -1,7 +1,11 @@
+---@diagnostic disable: trailing-space
 require("lazy").setup({
   {
     "ellisonleao/gruvbox.nvim",
     priority = 1000,
+  },
+  {
+    "loctvl842/monokai-pro.nvim",
   },
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.8',

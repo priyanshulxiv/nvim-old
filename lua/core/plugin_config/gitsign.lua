@@ -7,5 +7,6 @@ require('gitsigns').setup({
     topdelete = { text = 'tp' },
     changedelete = { text = 'cd' },
     untracked = { text = 'u' },
-  }
+  },
+  signs_staged_enable = false,
 })

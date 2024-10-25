@@ -3,4 +3,7 @@ require("gruvbox").setup({
     SignColumn = { bg = "#282828" }
   }
 })
-vim.cmd("colorscheme gruvbox")
+
+require("monokai-pro").setup()
+
+vim.cmd("colorscheme monokai-pro")

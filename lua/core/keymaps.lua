@@ -9,13 +9,22 @@ vim.keymap.set("n", "<C-q>", ":bd!<CR>", { silent = true })
 vim.keymap.set("n", "<C-S>", ":source %<CR>", { silent = true })
 vim.keymap.set("n", "<a-z>", ":set wrap!<CR>", { silent = true }) -- Toggle Word Wrap
 
--- Remap for dealing with word wrap
-vim.keymap.set('n', '<up>', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', '<down>', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
 -- To exit Terminal mode into Normal mode by pressing ESC key
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', {noremap = true})
 
--- Remap Ctrl+p and Ctrl+n for navigation to arrow keys
-vim.cmd('cnoremap <up> <c-p>')
-vim.cmd('cnoremap <down> <c-n>')
+vim.api.nvim_set_keymap('c', '<C-j>', '<C-n>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('c', '<C-k>', '<C-p>', { noremap = true, silent = true })
+
+vim.cmd('nnoremap <Left>  :echoe "Use h"<CR>')
+vim.cmd('nnoremap <Right> :echoe "Use l"<CR>')
+vim.cmd('nnoremap <Up>    :echoe "Use k"<CR>')
+vim.cmd('nnoremap <Down>  :echoe "Use j"<CR>')
+vim.cmd('inoremap <Left>  <ESC>:echoe "Use h"<CR>')
+vim.cmd('inoremap <Right> <ESC>:echoe "Use l"<CR>')
+vim.cmd('inoremap <Up>    <ESC>:echoe "Use k"<CR>')
+vim.cmd('inoremap <Down>  <ESC>:echoe "Use j"<CR>')
+
+vim.api.nvim_set_keymap('i', '<C-h>', '<Left>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-j>', '<Down>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-k>', '<Up>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-l>', '<Right>', { noremap = true, silent = true })
