@@ -6,6 +6,11 @@ vim.keymap.set('n', "<leader>sr", builtin.oldfiles, { silent = true })
 vim.api.nvim_set_keymap('n', '<leader>ff', ":lua require('telescope.builtin').find_files({previewer = false})<CR>", { silent = true })
 
 require("telescope").setup{
+  pickers = {
+    colorscheme = {
+      enable_preview = true,
+    },
+  },
   defaults = {
     mappings = {
       i = { -- Insert mode mappings
