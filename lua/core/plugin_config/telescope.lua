@@ -3,9 +3,10 @@ vim.keymap.set('n', '<leader>sf', builtin.find_files, { silent = true })
 vim.keymap.set('n', '<leader>st', builtin.live_grep, { silent = true })
 vim.keymap.set('n', '<leader>sb', builtin.buffers, { silent = true })
 vim.keymap.set('n', "<leader>sr", builtin.oldfiles, { silent = true })
-vim.api.nvim_set_keymap('n', '<leader>ff', ":lua require('telescope.builtin').find_files({previewer = false})<CR>", { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ff', ":lua require('telescope.builtin').find_files({previewer = false})<CR>",
+  { silent = true })
 
-require("telescope").setup{
+require("telescope").setup {
   pickers = {
     colorscheme = {
       enable_preview = true,

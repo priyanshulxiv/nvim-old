@@ -6,11 +6,11 @@ vim.keymap.set("n", "E", ":bnext<CR>", { silent = true })
 vim.keymap.set("n", "<leader>w", ":w<CR>", { silent = true })
 vim.keymap.set("n", "<leader>q", ":bd<CR>", { silent = true })
 vim.keymap.set("n", "<C-q>", ":bd!<CR>", { silent = true })
-vim.keymap.set("n", "<C-S>", ":source %<CR>", { silent = true })
-        vim.keymap.set("n", "<a-z>", ":set wrap!<CR>", { silent = true }) -- Toggle Word Wrap
+vim.keymap.set("n", "<C-s>", ":source %<CR>", { silent = true })
+vim.keymap.set("n", "<a-z>", ":set wrap!<CR>", { silent = true })         -- Toggle Word Wrap
 
 -- To exit Terminal mode into Normal mode by pressing ESC key
-vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', {noremap = true})
+vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
 
 vim.api.nvim_set_keymap('c', '<C-j>', '<C-n>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('c', '<C-k>', '<C-p>', { noremap = true, silent = true })

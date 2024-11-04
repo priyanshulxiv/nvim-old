@@ -8,7 +8,8 @@ require("lazy").setup({
     "loctvl842/monokai-pro.nvim",
   },
   {
-    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.8',
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
   {
@@ -16,9 +17,9 @@ require("lazy").setup({
     dependencies = { "nvim-tree/nvim-web-devicons" }
   },
   "lewis6991/gitsigns.nvim",
-  { 
-    'akinsho/bufferline.nvim', 
-    version = "*", 
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
     dependencies = 'nvim-tree/nvim-web-devicons'
   },
   "nvim-treesitter/nvim-treesitter",
@@ -48,11 +49,16 @@ require("lazy").setup({
     config = true
   },
 
-  -- LSP 
+  -- LSP
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
   "neovim/nvim-lspconfig",
-  "nvimtools/none-ls.nvim",
+  {
+    "nvimtools/none-ls.nvim",
+    dependencies = {
+      "nvimtools/none-ls-extras.nvim",
+    }
+  },
 
   -- Completion
   "hrsh7th/nvim-cmp",
@@ -65,5 +71,4 @@ require("lazy").setup({
   "L3MON4D3/LuaSnip",
   "saadparwaiz1/cmp_luasnip",
   "rafamadriz/friendly-snippets",
-
 })
