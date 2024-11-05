@@ -23,6 +23,10 @@ capabilities_.textDocument.completion.completionItem.snippetSupport = true
 local on_attach = function(client, bufnr)
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set("n", "<leader>ld", vim.lsp.buf.definition, bufopts)
+  vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, bufopts)
+  vim.keymap.set("n", "<leader>li", vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set("n", "<leader>fr", require('telescope.builtin').lsp_references, bufopts)
   vim.keymap.set("n", "<S-K>", vim.lsp.buf.hover, bufopts)
   vim.keymap.set("n", "<leader>ft", vim.lsp.buf.format, bufopts)
 end
