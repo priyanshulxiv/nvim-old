@@ -17,6 +17,11 @@ vim.opt.wrap = true
 vim.opt.breakindent = true
 vim.opt.linebreak = true
 vim.opt.showcmd = false
+vim.opt.incsearch = true
+vim.opt.hlsearch = false 
+vim.termguicolors = true
+
+vim.opt.undodir = os.getenv("USERPROFILE") .. "/.vim/undodir"
 
 -- Set indentation settings for Python files
 vim.api.nvim_create_autocmd("FileType", {
