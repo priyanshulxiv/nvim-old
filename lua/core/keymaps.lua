@@ -10,6 +10,9 @@ vim.keymap.set("n", "<C-s>", ":source %<CR>", { silent = true })
 vim.keymap.set("n", "<a-z>", ":set wrap!<CR>", { silent = true })         -- Toggle Word Wrap
 vim.keymap.set("n", "<leader>r", ":setlocal nomodifiable!<CR>", { silent = true })
 
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 -- To exit Terminal mode into Normal mode by pressing ESC key
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
 
