@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.tabstop = 2
@@ -11,16 +13,10 @@ vim.opt.smartindent = true
 vim.opt.cursorline = true
 vim.opt.swapfile = false
 vim.opt.undofile = true
-vim.opt.autochdir = true
 vim.opt.wrap = true
 vim.opt.breakindent = true
 vim.opt.linebreak = true
-
 vim.opt.showcmd = false
-
-vim.cmd("cd %:p:h")
-
-vim.g.mapleader = " "
 
 -- Set indentation settings for Python files
 vim.api.nvim_create_autocmd("FileType", {
