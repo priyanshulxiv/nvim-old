@@ -13,7 +13,18 @@ vim.keymap.set("n", "<leader>r", ":setlocal nomodifiable!<CR>", { silent = true 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
+-- This function fixes screen flickering when pressing <C-d> from top of the file
+local function lazy(keys)
+	keys = vim.api.nvim_replace_termcodes(keys, true, false, true)
+	return function()
+		local old = vim.o.lazyredraw
+		vim.o.lazyredraw = true
+		vim.api.nvim_feedkeys(keys, "nx", false)
+		vim.o.lazyredraw = old
+	end
+end
+
+vim.keymap.set("n", "<C-d>", lazy("<C-d>zz"))
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
