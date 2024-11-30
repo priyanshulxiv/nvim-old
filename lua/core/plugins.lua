@@ -53,12 +53,6 @@ require("lazy").setup({
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
   "neovim/nvim-lspconfig",
-  {
-    "nvimtools/none-ls.nvim",
-    dependencies = {
-      "nvimtools/none-ls-extras.nvim",
-    }
-  },
 
   -- Completion
   "hrsh7th/nvim-cmp",
@@ -74,4 +68,5 @@ require("lazy").setup({
   "rafamadriz/friendly-snippets",
 
   "norcalli/nvim-colorizer.lua",
+  "stevearc/conform.nvim"
 })

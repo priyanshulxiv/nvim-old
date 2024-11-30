@@ -13,6 +13,9 @@ cmp.setup({
     ['<C-e>'] = cmp.mapping.abort(),
     ['<Tab>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   }),
+  completion = {
+    completeopt = "menu,menuone"
+  },
   snippet = {
     expand = function(args)
       require("luasnip").lsp_expand(args.body)
