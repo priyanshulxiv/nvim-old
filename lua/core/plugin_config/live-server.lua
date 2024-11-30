@@ -1,1 +1,1 @@
-require('live-server').setup(opts)
+require("live-server").setup(opts)
