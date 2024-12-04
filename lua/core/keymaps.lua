@@ -8,7 +8,7 @@ vim.keymap.set("n", "<leader>q", ":bd<CR>", { silent = true })
 vim.keymap.set("n", "<C-q>", ":bd!<CR>", { silent = true })
 vim.keymap.set("n", "<C-s>", ":source %<CR>", { silent = true })
 vim.keymap.set("n", "<a-z>", ":set wrap!<CR>", { silent = true }) -- Toggle Word Wrap
-vim.keymap.set("n", "<leader>r", ":setlocal nomodifiable!<CR>", { silent = true })
+vim.keymap.set("n", "<leader>m", ":setlocal nomodifiable!<CR>", { silent = true })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
