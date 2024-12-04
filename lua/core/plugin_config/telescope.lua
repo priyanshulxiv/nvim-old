@@ -9,6 +9,7 @@ vim.api.nvim_set_keymap(
 	":lua require('telescope.builtin').find_files({previewer = false})<CR>",
 	{ silent = true }
 )
+vim.api.nvim_set_keymap("v", "<leader>st", "y<ESC>:Telescope live_grep default_text=<c-r>0<CR>", { silent = true })
 
 require("telescope").setup({
 	pickers = {
