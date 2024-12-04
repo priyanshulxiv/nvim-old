@@ -11,5 +11,6 @@ require("bufferline").setup({
 				padding = 1,
 			},
 		},
+		sort_by = "insert_at_end",
 	},
 })
