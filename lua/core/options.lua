@@ -33,3 +33,9 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.cmd([[
     autocmd BufEnter * setlocal formatoptions-=cro
 ]])
+
+-- [FOR WINDOWS] To make NeoVim use powershell as the terminal
+vim.opt.shell = "pwsh"
+vim.opt.shellcmdflag = "-c"
+vim.opt.shellquote = '"'
+vim.opt.shellxquote = ""
