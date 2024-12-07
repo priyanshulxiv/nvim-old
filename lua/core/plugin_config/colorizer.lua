@@ -1,8 +1,14 @@
 require("colorizer").setup({
-	"lua",
-	"css",
-	"javascript",
 	html = {
-		mode = "foreground",
+		names = false,
+		RRGGBBAA = true,
+		rgb_fn = true,
+		hsl_fn = true,
+	},
+	css = {
+		names = false,
+		RRGGBBAA = true,
+		rgb_fn = true,
+		hsl_fn = true,
 	},
 })

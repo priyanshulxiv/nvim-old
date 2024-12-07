@@ -19,7 +19,7 @@ vim.opt.linebreak = true
 vim.opt.showcmd = false
 vim.opt.incsearch = true
 vim.opt.hlsearch = false
-vim.termguicolors = true
+vim.opt.termguicolors = true
 
 vim.opt.undodir = os.getenv("USERPROFILE") .. "/.vim/undodir"
 
