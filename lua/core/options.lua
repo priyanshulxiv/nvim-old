@@ -21,6 +21,12 @@ vim.opt.incsearch = true
 vim.opt.hlsearch = false
 vim.opt.termguicolors = true
 
+vim.opt.guicursor = {
+	"n-v-c:block",
+	"i-ci:block-blinkon1",
+	"r-o:hor20",
+}
+
 vim.opt.undodir = os.getenv("USERPROFILE") .. "/.vim/undodir"
 
 -- Set indentation settings for Python files
