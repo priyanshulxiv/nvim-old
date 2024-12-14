@@ -1,15 +1,36 @@
-vim.keymap.set("n", "<leader>h", ":set nohlsearch!<CR>", { silent = true })
-vim.keymap.set("n", "|", ":vsplit<CR>", { silent = true })
-vim.keymap.set("n", "-", ":split<CR>", { silent = true })
-vim.keymap.set("n", "Q", ":bprevious<CR>", { silent = true })
-vim.keymap.set("n", "E", ":bnext<CR>", { silent = true })
-vim.keymap.set("n", "<leader>w", ":w<CR>", { silent = true })
-vim.keymap.set("n", "<leader>q", ":bd<CR>", { silent = true })
-vim.keymap.set("n", "<C-q>", ":bd!<CR>", { silent = true })
-vim.keymap.set("n", "<C-s>", ":source %<CR>", { silent = true })
-vim.keymap.set("n", "<leader>lw", ":set wrap!<CR>", { silent = true }) -- Toggle Word Wrap
-vim.keymap.set("n", "<leader>ro", ":setlocal nomodifiable!<CR>", { silent = false })
+-- Toggle hlsearch
+vim.keymap.set("n", "<leader>h", "<CMD>set nohlsearch!<CR>", { silent = true })
 
+-- Create split and move cursor to new split
+vim.keymap.set("n", "|", "<CMD>vsplit<CR><C-w>l", { silent = true })
+vim.keymap.set("n", "-", "<CMD>split<CR><C-w>j", { silent = true })
+
+-- Buffer navigation
+vim.keymap.set("n", "Q", "<CMD>bprevious<CR>", { silent = true })
+vim.keymap.set("n", "E", "<CMD>bnext<CR>", { silent = true })
+
+-- Quick file save/close action
+vim.keymap.set("n", "<leader>w", "<CMD>w<CR>", { silent = true })
+vim.keymap.set("n", "<leader>q", "<CMD>bd<CR>", { silent = true })
+vim.keymap.set("n", "<C-q>", "<CMD>bd!<CR>", { silent = true })
+
+-- Line Wrap
+vim.keymap.set("n", "<leader>lw", "<CMD>set wrap!<CR>", { silent = true })
+
+-- Toggle Read-Only mode for current buffer
+vim.keymap.set("n", "<leader>ro", function()
+	local modifiable = vim.bo.modifiable
+
+	vim.bo.modifiable = not modifiable
+
+	if vim.bo.modifiable then
+		print("[Modifiable]")
+	else
+		print("[Read only]")
+	end
+end, { silent = true })
+
+-- Move Lines in Visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -24,23 +45,45 @@ local function lazy(keys)
 	end
 end
 
+-- Cursor stays at the center of the screen
 vim.keymap.set("n", "<C-d>", lazy("<C-d>zz"))
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- Cursor stays at the center of the screen
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
+-- Cursor stays at the current position after Joining lines
 vim.keymap.set("n", "J", "mzJ`z")
 
--- To exit Terminal mode into Normal mode by pressing ESC key
-vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
+-- Stay in Visual mode
+vim.keymap.set("v", "<", "<gv", { silent = true })
+vim.keymap.set("v", ">", ">gv", { silent = true })
 
-vim.api.nvim_set_keymap("n", "<C-j>", "gj", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-k>", "gk", { noremap = true, silent = true })
+-- Exit Terminal mode into Normal mode by pressing ESC key
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
-vim.cmd('nnoremap <Left>  :echoe "Use h"<CR>')
-vim.cmd('nnoremap <Right> :echoe "Use l"<CR>')
-vim.cmd('nnoremap <Up>    :echoe "Use k"<CR>')
-vim.cmd('nnoremap <Down>  :echoe "Use j"<CR>')
-vim.cmd('inoremap <Left>  <ESC>:echoe "Use h"<CR>')
-vim.cmd('inoremap <Right> <ESC>:echoe "Use l"<CR>')
-vim.cmd('inoremap <Up>    <ESC>:echoe "Use k"<CR>')
-vim.cmd('inoremap <Down>  <ESC>:echoe "Use j"<CR>')
+-- Move around in Line wrap
+vim.keymap.set("n", "<A-j>", "gj")
+vim.keymap.set("n", "<A-k>", "gk")
+
+-- Resize split with Arrow Keys
+vim.keymap.set("n", "<Up>", "<CMD>resize +2<CR>", { silent = true })
+vim.keymap.set("n", "<Down>", "<CMD>resize -2<CR>", { silent = true })
+vim.keymap.set("n", "<Left>", "<CMD>vertical resize +2<CR>", { silent = true })
+vim.keymap.set("n", "<Right>", "<CMD>vertical resize -2<CR>", { silent = true })
+
+-- Copy to system clipboard
+vim.keymap.set("n", "<leader>y", '"+y')
+vim.keymap.set("v", "<leader>y", '"+y')
+
+-- Keep the deleted text in black-hole register
+vim.keymap.set("n", "<leader>d", '"_d')
+vim.keymap.set("v", "<leader>d", '"_d')
+
+-- Copy current directory path to clipboard
+vim.keymap.set(
+	"n",
+	"<leader>cfp",
+	'<CMD>let @+ = expand("%:p:h")<CR><CMD>lua print("Copied path to: " .. vim.fn.expand("%:p:h"))<CR>'
+)

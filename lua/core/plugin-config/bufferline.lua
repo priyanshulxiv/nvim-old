@@ -1,4 +1,3 @@
-vim.opt.termguicolors = true
 require("bufferline").setup({
 	options = {
 		event = "VimEnter",
@@ -14,3 +13,6 @@ require("bufferline").setup({
 		sort_by = "insert_at_end",
 	},
 })
+
+vim.keymap.set("n", "<leader>E", "<CMD>BufferLineMoveNext<CR>", { silent = true })
+vim.keymap.set("n", "<leader>Q", "<CMD>BufferLineMovePrev<CR>", { silent = true })

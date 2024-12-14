@@ -18,7 +18,7 @@ vim.opt.breakindent = true
 vim.opt.linebreak = true
 vim.opt.showcmd = false
 vim.opt.incsearch = true
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.termguicolors = true
 
 vim.opt.guicursor = {
