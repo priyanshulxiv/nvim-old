@@ -70,8 +70,8 @@ vim.keymap.set("n", "<A-k>", "gk")
 -- Resize split with Arrow Keys
 vim.keymap.set("n", "<Up>", "<CMD>resize +2<CR>", { silent = true })
 vim.keymap.set("n", "<Down>", "<CMD>resize -2<CR>", { silent = true })
-vim.keymap.set("n", "<Left>", "<CMD>vertical resize +2<CR>", { silent = true })
-vim.keymap.set("n", "<Right>", "<CMD>vertical resize -2<CR>", { silent = true })
+vim.keymap.set("n", "<Right>", "<CMD>vertical resize +2<CR>", { silent = true })
+vim.keymap.set("n", "<Left>", "<CMD>vertical resize -2<CR>", { silent = true })
 
 -- Copy to system clipboard
 vim.keymap.set("n", "<leader>y", '"+y')

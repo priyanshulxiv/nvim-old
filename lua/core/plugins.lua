@@ -19,7 +19,10 @@ require("lazy").setup({
 		version = "*",
 		dependencies = "nvim-tree/nvim-web-devicons",
 	},
-	"nvim-treesitter/nvim-treesitter",
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
