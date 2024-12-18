@@ -20,6 +20,7 @@ vim.opt.wrap = true -- Enable Line Wrap
 vim.opt.showcmd = false -- Disable showing commands in the last line of screen
 vim.opt.incsearch = true -- While typing a search command, highlight the first matching pattern
 vim.opt.hlsearch = true -- Highlights all occurrences of the search pattern
+vim.opt.updatetime = 100 -- Make Neovim more responsive
 
 vim.opt.termguicolors = true
 
@@ -43,5 +44,8 @@ vim.api.nvim_create_autocmd("FileType", {
 	command = "setlocal tabstop=2 shiftwidth=2 expandtab",
 })
 
--- Prevents from automatically inserting comment leader when opening new line under a comment
-vim.opt.formatoptions:remove({ "c", "r", "o" })
+-- Prevent from automatically inserting comment leader when opening new line under a comment
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = "*",
+	command = "setlocal formatoptions-=cro",
+})
