@@ -2,40 +2,46 @@ vim.g.mapleader = " "
 
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.laststatus = 3
-vim.opt.expandtab = true -- Convert tabs to spaces
-vim.opt.pumheight = 20 -- Pop-up window height
-vim.opt.pumwidth = 30
+
+vim.opt.expandtab = true -- Convert tabs to spaces with '>' and '<' commands
+vim.opt.tabstop = 2 -- Number of spaces that a <Tab> in the file counts for
+vim.opt.shiftwidth = 2 -- Number of spaces to use for each step of (auto)indent
+vim.opt.laststatus = 3 -- Use a single statusline for all windows instead of having own separate statusline
+
+vim.opt.pumheight = 20 -- Completion window height
 vim.opt.signcolumn = "yes" -- Always show the sign column, otherwise it would shift the text each time
-vim.opt.smartindent = true
-vim.opt.cursorline = true
-vim.opt.swapfile = false
-vim.opt.undofile = true
-vim.opt.wrap = true
-vim.opt.breakindent = true
-vim.opt.linebreak = true
-vim.opt.showcmd = false
-vim.opt.incsearch = true
-vim.opt.hlsearch = true
+vim.opt.cursorline = true -- Highlight the text line of the cursor
+vim.opt.smartindent = true -- Do smart autoindenting when starting a new line
+vim.opt.breakindent = true -- Wrapped line will continue visually indented
+vim.opt.linebreak = true -- Doesn't allow breaking line in the middle of a word
+vim.opt.swapfile = false -- Disable creating a swap file
+vim.opt.undofile = true -- Create a undofile
+vim.opt.wrap = true -- Enable Line Wrap
+vim.opt.showcmd = false -- Disable showing commands in the last line of screen
+vim.opt.incsearch = true -- While typing a search command, highlight the first matching pattern
+vim.opt.hlsearch = true -- Highlights all occurrences of the search pattern
+
 vim.opt.termguicolors = true
 
+-- Change Insert-mode cursor to a block cursor
 vim.opt.guicursor = {
 	"n-v-c:block",
 	"i-ci:block-blinkon1",
 	"r-o:hor20",
 }
 
-vim.opt.undodir = os.getenv("USERPROFILE") .. "/.vim/undodir"
+-- Create the directory if it doesn't exist
+local undodir = os.getenv("USERPROFILE") .. "/.vim/undodir"
+if vim.fn.isdirectory(undodir) == 0 then
+	vim.fn.mkdir(undodir, "p") -- Create parent directories if needed
+end
+vim.opt.undodir = undodir -- Store undofiles in this directory
 
--- Set indentation settings for Python files
+-- Instead of 4, use 2 spaces as (auto)indentation
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "python",
 	command = "setlocal tabstop=2 shiftwidth=2 expandtab",
 })
 
--- Format options for comment behaviours
-vim.cmd([[
-    autocmd BufEnter * setlocal formatoptions-=cro
-]])
+-- Prevents from automatically inserting comment leader when opening new line under a comment
+vim.opt.formatoptions:remove({ "c", "r", "o" })
