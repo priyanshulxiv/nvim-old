@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.mouse = ""
 
 vim.opt.expandtab = true -- Convert tabs to spaces with '>' and '<' commands
 vim.opt.tabstop = 2 -- Number of spaces that a <Tab> in the file counts for
