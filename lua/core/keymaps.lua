@@ -5,10 +5,6 @@ vim.keymap.set("n", "<leader>h", "<CMD>set nohlsearch!<CR>", { silent = true })
 vim.keymap.set("n", "|", "<CMD>vsplit<CR><C-w>l", { silent = true })
 vim.keymap.set("n", "-", "<CMD>split<CR><C-w>j", { silent = true })
 
--- Buffer navigation
-vim.keymap.set("n", "Q", "<CMD>bprevious<CR>", { silent = true })
-vim.keymap.set("n", "E", "<CMD>bnext<CR>", { silent = true })
-
 -- Quick file save/close action
 vim.keymap.set("n", "<leader>w", "<CMD>w<CR>", { silent = true })
 vim.keymap.set("n", "<leader>q", "<CMD>bd<CR>", { silent = true })
