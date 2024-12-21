@@ -12,7 +12,6 @@ vim.keymap.set("n", "E", "<CMD>bnext<CR>", { silent = true })
 -- Quick file save/close action
 vim.keymap.set("n", "<leader>w", "<CMD>w<CR>", { silent = true })
 vim.keymap.set("n", "<leader>q", "<CMD>bd<CR>", { silent = true })
-vim.keymap.set("n", "<C-q>", "<CMD>bd!<CR>", { silent = true })
 
 -- Line Wrap
 vim.keymap.set("n", "<leader>lw", "<CMD>set wrap!<CR>", { silent = true })
@@ -47,7 +46,7 @@ end
 
 -- Cursor stays at the center of the screen
 vim.keymap.set("n", "<C-d>", lazy("<C-d>zz"))
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-u>", lazy("<C-u>zz"))
 
 -- Cursor stays at the center of the screen
 vim.keymap.set("n", "n", "nzzzv")
@@ -87,3 +86,15 @@ vim.keymap.set(
 	"<leader>cfp",
 	'<CMD>let @+ = expand("%:p:h")<CR><CMD>lua print("Copied path to: " .. vim.fn.expand("%:p:h"))<CR>'
 )
+
+-- Quickfix keymaps
+vim.keymap.set("n", "<leader>cn", "<CMD>cnext<CR>", { silent = true })
+vim.keymap.set("n", "<leader>cp", "<CMD>cprev<CR>", { silent = true })
+vim.keymap.set("n", "<leader>co", "<CMD>copen<CR>", { silent = true })
+vim.keymap.set("n", "<leader>cc", "<CMD>cclose<CR>", { silent = true })
+
+-- Empty Quickfix list
+vim.keymap.set("n", "<leader>ck", function()
+	vim.fn.setqflist({}, "f")
+	print("Quickfix list deleted")
+end, { silent = true })
