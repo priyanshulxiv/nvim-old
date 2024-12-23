@@ -79,3 +79,9 @@ require("lspconfig").emmet_language_server.setup({
 		"php",
 	},
 })
+require("mason-tool-installer").setup({
+	ensure_installed = {
+		"prettier",
+		"stylua",
+	},
+})

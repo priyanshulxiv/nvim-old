@@ -46,3 +46,13 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	pattern = "*",
 	command = "setlocal formatoptions-=cro",
 })
+
+-- Print startuptime on entering Neovim
+local start_time = vim.fn.reltime()
+
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		local elapsed = vim.fn.reltimefloat(vim.fn.reltime(start_time)) * 1000 -- Convert to milliseconds
+		print("Startup time: " .. string.format("%.3f ms", elapsed))
+	end,
+})

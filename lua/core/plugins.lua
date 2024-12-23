@@ -34,7 +34,10 @@ require("lazy").setup({
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
-	"numToStr/Comment.nvim",
+	{
+		"numToStr/Comment.nvim",
+		dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
+	},
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -52,6 +55,7 @@ require("lazy").setup({
 	-- LSP
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
+	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	"neovim/nvim-lspconfig",
 
 	-- Completion
