@@ -1,12 +1,3 @@
--- Change Insert-mode cursor to a block cursor
-vim.opt.guicursor = {
-	"n-v-c:block",
-	"i-ci:block-blinkon1",
-	"r-o:hor20",
-}
-
-vim.opt.undodir = (os.getenv("USERPROFILE") or os.getenv("HOME")) .. "/.vim/undodir" -- Store undofiles in this directory (USERPROFILE for Win, HOME for Linux)
-
 -- Instead of 4, use 2 spaces as (auto)indentation
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "python",
@@ -17,16 +8,6 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("BufEnter", {
 	pattern = "*",
 	command = "setlocal formatoptions-=cro",
-})
-
--- Print startuptime on entering Neovim
-local start_time = vim.fn.reltime()
-
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		local elapsed = vim.fn.reltimefloat(vim.fn.reltime(start_time)) * 1000 -- Convert to milliseconds
-		print("Startup time: " .. string.format("%.3f ms", elapsed))
-	end,
 })
 
 -- Highlight on yank
