@@ -13,11 +13,27 @@ vim.keymap.set("n", "<leader>ff", function()
 	})
 end, { silent = true })
 
+-- Telescope find files inside dotfiles
+vim.keymap.set("n", "<leader>fd", function()
+	builtin.find_files({
+		hidden = true,
+		file_ignore_patterns = { "node_modules", ".git", ".venv" },
+		previewer = false,
+	})
+end, { silent = true })
+
 -- Telescope search currently selected text
 vim.keymap.set("v", "<leader>st", "y<ESC>:Telescope live_grep default_text=<c-r>0<CR>", { silent = true })
 
 require("telescope").setup({
 	pickers = {
+		live_grep = {
+			file_ignore_patterns = { "node_modules", ".git", ".venv" },
+			additional_args = function(_)
+				return { "--hidden" }
+			end,
+		},
+
 		colorscheme = {
 			enable_preview = true,
 		},

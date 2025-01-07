@@ -4,7 +4,7 @@ require("mason-lspconfig").setup({
 		"lua_ls",
 		"ts_ls",
 		"clangd",
-		"csharp_ls",
+		-- "csharp_ls",
 		"html",
 		"cssls",
 		"intelephense",
@@ -23,7 +23,7 @@ local langservers = {
 	"clangd",
 	"ts_ls",
 	"pyright",
-	"csharp_ls",
+	-- "csharp_ls",
 	"intelephense",
 }
 
