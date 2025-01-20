@@ -51,7 +51,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- Cursor stays at the current position after Joining lines
 vim.keymap.set("n", "J", "mzJ`z")
 
--- Stay in Visual mode
+-- Stay in Visual mode after changing Indent with < >
 vim.keymap.set("v", "<", "<gv", { silent = true })
 vim.keymap.set("v", ">", ">gv", { silent = true })
 
@@ -83,11 +83,22 @@ vim.keymap.set(
 	'<CMD>let @+ = expand("%:p:h")<CR><CMD>lua print("Copied path to: " .. vim.fn.expand("%:p:h"))<CR>'
 )
 
+-- Terminal splits
+vim.keymap.set("n", "<leader>t-", ":belowright 10split | term<CR>", { silent = true })
+vim.keymap.set("n", "<leader>t|", ":botright 70vsplit | term<CR>", { silent = true })
+
 -- Quickfix keymaps
-vim.keymap.set("n", "<leader>cn", "<CMD>cnext<CR>", { silent = true })
-vim.keymap.set("n", "<leader>cp", "<CMD>cprev<CR>", { silent = true })
-vim.keymap.set("n", "<leader>co", "<CMD>copen<CR>", { silent = true })
-vim.keymap.set("n", "<leader>cc", "<CMD>cclose<CR>", { silent = true })
+vim.keymap.set("n", "<C-j>", "<CMD>cnext<CR>", { silent = true })
+vim.keymap.set("n", "<C-k>", "<CMD>cprev<CR>", { silent = true })
+
+-- Toggle quickfix window
+vim.keymap.set("n", "<leader>tq", function()
+	if vim.fn.getwininfo(vim.fn.win_getid())[1].quickfix == 1 then
+		vim.cmd("cclose")
+	else
+		vim.cmd("copen")
+	end
+end, { silent = true })
 
 -- Empty Quickfix list
 vim.keymap.set("n", "<leader>ck", function()

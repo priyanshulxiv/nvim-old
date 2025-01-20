@@ -10,6 +10,11 @@ require("bufferline").setup({
 				padding = 1,
 			},
 		},
+		custom_filter = function(buf_number, buf_numbers)
+			if vim.bo[buf_number].filetype ~= "terminal" then
+				return true
+			end
+		end,
 		sort_by = "insert_at_end",
 	},
 })

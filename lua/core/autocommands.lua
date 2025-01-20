@@ -1,4 +1,4 @@
--- Instead of 4, use 2 spaces as (auto)indentation
+-- Instead of 4, use 2 spaces as (auto)indentation in python files
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "python",
 	command = "setlocal tabstop=2 shiftwidth=2 expandtab",
@@ -7,16 +7,8 @@ vim.api.nvim_create_autocmd("FileType", {
 -- Prevent from automatically inserting comment leader when opening new line under a comment
 vim.api.nvim_create_autocmd("BufEnter", {
 	pattern = "*",
-	command = "setlocal formatoptions-=cro",
-})
-
--- Remove trailing whitespaces before saving a file
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = "*",
 	callback = function()
-		local pos = vim.api.nvim_win_get_cursor(0) -- Get the current cursor position
-		vim.cmd([[%s/\s\+$//e]]) -- Perform the substitution to remove trailing spaces
-		vim.api.nvim_win_set_cursor(0, pos) -- Restore the cursor position
+		vim.cmd("set formatoptions-=cro")
 	end,
 })
 
@@ -31,7 +23,17 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- Go to the last location when opening a buffer
+-- Remove trailing whitespaces before saving a file
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
+	callback = function()
+		local pos = vim.api.nvim_win_get_cursor(0) -- Get the current cursor position
+		vim.cmd([[%s/\s\+$//e]]) -- Perform the substitution to remove trailing spaces
+		vim.api.nvim_win_set_cursor(0, pos) -- Restore the cursor position
+	end,
+})
+
+-- Go to the location where the file was last exited when opening a buffer
 vim.api.nvim_create_autocmd("BufReadPost", {
 	callback = function()
 		local mark = vim.api.nvim_buf_get_mark(0, '"')
@@ -58,11 +60,27 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     ]])
 	end,
 })
+
 -- Exit command-line window pressing <ESC> or q
 vim.api.nvim_create_autocmd("CmdWinEnter", {
 	callback = function()
 		vim.api.nvim_buf_set_keymap(0, "n", "q", "<CMD>quit<CR>", { noremap = true, silent = true })
 		vim.api.nvim_buf_set_keymap(0, "n", "<ESC>", "<CMD>quit<CR>", { noremap = true, silent = true })
+	end,
+})
+
+-- Hide some UI elements in terminal inside vim
+vim.api.nvim_create_autocmd("TermOpen", {
+	pattern = "term://*",
+	callback = function()
+		if vim.opt.buftype:get() == "terminal" then
+			vim.opt_local.number = false
+			vim.opt_local.relativenumber = false
+			vim.opt_local.cursorline = false
+			vim.opt_local.signcolumn = "no"
+			vim.opt.filetype = "terminal"
+			vim.cmd.startinsert() -- Start in insert mode
+		end
 	end,
 })
 

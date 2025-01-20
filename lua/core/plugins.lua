@@ -1,57 +1,69 @@
 ---@diagnostic disable: trailing-space
 require("lazy").setup({
+	"lewis6991/gitsigns.nvim", -- Gitsigns
+	"windwp/nvim-autopairs", -- Autopairs
+	"windwp/nvim-ts-autotag", -- Autotag
+	"norcalli/nvim-colorizer.lua", -- Nvim-Colorizer
+	"stevearc/conform.nvim", -- Conform (Formatter)
+
+	-- Colorscheme (Gruvbox)
 	{
 		"ellisonleao/gruvbox.nvim",
 		priority = 1000,
 	},
-	{
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.8",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
-	{
-		"nvim-tree/nvim-tree.lua",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-	},
-	"lewis6991/gitsigns.nvim",
+	-- BufferLine
 	{
 		"akinsho/bufferline.nvim",
 		version = "*",
 		dependencies = "nvim-tree/nvim-web-devicons",
 	},
-	{
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-	},
+	-- Indent Blankline
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
 		opts = {},
 	},
-	"windwp/nvim-autopairs",
-	"windwp/nvim-ts-autotag",
+	-- Lualine
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
+	-- Comment
 	{
 		"numToStr/Comment.nvim",
 		dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
 	},
-	{
-		"folke/trouble.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = {},
-	},
-
 	-- Live Server
 	{
 		"barrett-ruth/live-server.nvim",
 		build = "pnpm add -g live-server",
 		cmd = { "LiveServerStart", "LiveServerStop" },
 	},
+	-- Trouble
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {},
+	},
 
-	-- LSP
+	-- NvimTree
+	{
+		"nvim-tree/nvim-tree.lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
+	-- Telescope
+	{
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.8",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+	-- Treesitter
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+	},
+
+	-- LSP and Mason
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -69,7 +81,4 @@ require("lazy").setup({
 	-- Snippets
 	"L3MON4D3/LuaSnip",
 	"rafamadriz/friendly-snippets",
-
-	"norcalli/nvim-colorizer.lua",
-	"stevearc/conform.nvim",
 })

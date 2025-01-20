@@ -1,4 +1,36 @@
+local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
+
+require("telescope").setup({
+	pickers = {
+		live_grep = {
+			file_ignore_patterns = { "node_modules", "%.git/", ".venv" },
+			additional_args = function(_)
+				return { "--hidden" }
+			end,
+		},
+		colorscheme = {
+			enable_preview = true,
+		},
+	},
+	defaults = {
+		mappings = {
+			i = { -- Insert mode mappings
+				["<C-j>"] = actions.move_selection_next,
+				["<C-k>"] = actions.move_selection_previous,
+				["<a-k>"] = actions.preview_scrolling_up,
+				["<a-j>"] = actions.preview_scrolling_down,
+				["<Tab>"] = actions.select_default,
+			},
+			n = { -- Normal mode mappings (optional)
+				["<a-k>"] = actions.preview_scrolling_up,
+				["<a-j>"] = actions.preview_scrolling_down,
+				["<Tab>"] = actions.select_default,
+			},
+		},
+	},
+})
+
 vim.keymap.set("n", "<leader>sf", builtin.find_files, { silent = true })
 vim.keymap.set("n", "<leader>st", builtin.live_grep, { silent = true })
 vim.keymap.set("n", "<leader>sb", builtin.buffers, { silent = true })
@@ -24,34 +56,3 @@ end, { silent = true })
 
 -- Telescope search currently selected text
 vim.keymap.set("v", "<leader>st", "y<ESC>:Telescope live_grep default_text=<c-r>0<CR>", { silent = true })
-
-require("telescope").setup({
-	pickers = {
-		live_grep = {
-			file_ignore_patterns = { "node_modules", ".git", ".venv" },
-			additional_args = function(_)
-				return { "--hidden" }
-			end,
-		},
-
-		colorscheme = {
-			enable_preview = true,
-		},
-	},
-	defaults = {
-		mappings = {
-			i = { -- Insert mode mappings
-				["<C-j>"] = require("telescope.actions").move_selection_next,
-				["<C-k>"] = require("telescope.actions").move_selection_previous,
-				["<a-k>"] = require("telescope.actions").preview_scrolling_up,
-				["<a-j>"] = require("telescope.actions").preview_scrolling_down,
-				["<Tab>"] = require("telescope.actions").select_default,
-			},
-			n = { -- Normal mode mappings (optional)
-				["<a-k>"] = require("telescope.actions").preview_scrolling_up,
-				["<a-j>"] = require("telescope.actions").preview_scrolling_down,
-				["<Tab>"] = require("telescope.actions").select_default,
-			},
-		},
-	},
-})
