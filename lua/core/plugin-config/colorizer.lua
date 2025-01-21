@@ -24,3 +24,6 @@ require("colorizer").setup({
 		hsl_fn = true,
 	},
 })
+
+vim.keymap.set("n", "<leader>ca", "<CMD>ColorizerAttachToBuffer<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>cr", "<CMD>ColorizerReloadAllBuffers<CR>", { noremap = true, silent = true })

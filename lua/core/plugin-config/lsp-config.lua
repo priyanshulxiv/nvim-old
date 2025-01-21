@@ -43,11 +43,10 @@ local on_attach = function(client, bufnr)
 	-- Diagnostic
 	vim.keymap.set("n", "<leader>le", vim.diagnostic.open_float, bufopts)
 	vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, bufopts)
-	vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, bufopts)
-	vim.keymap.set("n", "<leader>dj", function()
+	vim.keymap.set("n", "]d", function()
 		vim.diagnostic.goto_next({ float = false })
 	end, bufopts)
-	vim.keymap.set("n", "<leader>dk", function()
+	vim.keymap.set("n", "[d", function()
 		vim.diagnostic.goto_prev({ float = false })
 	end, bufopts)
 end

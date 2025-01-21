@@ -18,6 +18,6 @@ require("gitsigns").setup({
 	},
 })
 
-vim.keymap.set("n", "<leader>gj", "<CMD>Gitsigns next_hunk<CR>", { silent = true })
-vim.keymap.set("n", "<leader>gk", "<CMD>Gitsigns prev_hunk<CR>", { silent = true })
+vim.keymap.set("n", "]c", "<CMD>Gitsigns next_hunk<CR>", { silent = true })
+vim.keymap.set("n", "[c", "<CMD>Gitsigns prev_hunk<CR>", { silent = true })
 vim.keymap.set("n", "<leader>gb", "<CMD>Gitsigns blame_line<CR>", { silent = true })
