@@ -42,7 +42,6 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set({ "n", "i" }, "<C-h>", vim.lsp.buf.signature_help, bufopts)
 	-- Diagnostic
 	vim.keymap.set("n", "<leader>le", vim.diagnostic.open_float, bufopts)
-	vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, bufopts)
 	vim.keymap.set("n", "]d", function()
 		vim.diagnostic.goto_next({ float = false })
 	end, bufopts)
