@@ -1,9 +1,8 @@
----@diagnostic disable: trailing-space
 require("lazy").setup({
-	"lewis6991/gitsigns.nvim", -- Gitsigns
 	"windwp/nvim-autopairs", -- Autopairs
 	"windwp/nvim-ts-autotag", -- Autotag
 	"norcalli/nvim-colorizer.lua", -- Nvim-Colorizer
+	"lewis6991/gitsigns.nvim", -- Gitsigns
 	"stevearc/conform.nvim", -- Conform (Formatter)
 
 	-- Colorscheme (Gruvbox)

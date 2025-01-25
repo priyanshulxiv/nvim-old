@@ -5,6 +5,7 @@ require("trouble").setup({
 	vim.api.nvim_set_hl(0, "TroubleNormalNC", { link = "TroubleNormal" }),
 })
 
+-- Keymaps
 vim.keymap.set("n", "<leader>tt", "<CMD>Trouble diagnostics toggle<CR>", { silent = true })
 vim.keymap.set("n", "<leader>td", "<CMD>Trouble diagnostics toggle filter.buf=0<CR>", { silent = true })
 vim.keymap.set("n", "]t", function()
