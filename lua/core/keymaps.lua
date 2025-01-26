@@ -88,8 +88,8 @@ vim.keymap.set("n", "<leader>t-", "<CMD>belowright 10split | term<CR>", { silent
 vim.keymap.set("n", "<leader>t|", "<CMD>botright 70vsplit | term<CR>", { silent = true })
 
 -- Quickfix keymaps
-vim.keymap.set("n", "]c", "<CMD>cnext<CR>", { silent = true })
-vim.keymap.set("n", "[c", "<CMD>cprev<CR>", { silent = true })
+vim.keymap.set("n", "]q", "<CMD>cnext<CR>", { silent = true })
+vim.keymap.set("n", "[q", "<CMD>cprev<CR>", { silent = true })
 
 -- Toggle quickfix window (Doesn't open if qf is empty)
 vim.keymap.set("n", "<leader>tq", function()
