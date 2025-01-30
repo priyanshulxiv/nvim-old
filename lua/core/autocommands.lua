@@ -44,6 +44,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 		local lcount = vim.api.nvim_buf_line_count(0)
 		if mark[1] > 0 and mark[1] <= lcount then
 			pcall(vim.api.nvim_win_set_cursor, 0, mark)
+			vim.cmd("normal! zz")
 		end
 	end,
 })
@@ -83,21 +84,5 @@ vim.api.nvim_create_autocmd("TermOpen", {
 			vim.opt.filetype = "terminal"
 			vim.cmd.startinsert() -- Start in insert mode
 		end
-	end,
-})
-
--- Set up logdir and logfile paths
-local logdir = vim.fn.expand("$HOME") .. "/.vim/logdir"
-local logfile = logdir .. "/logs.txt"
-
--- Create logdir if it doesn't exist
-vim.fn.mkdir(logdir, "p")
-
--- Autocommand to re-write (not append) vim messages in logs.txt on exiting
-vim.api.nvim_create_autocmd("VimLeavePre", {
-	callback = function()
-		vim.cmd(string.format("silent! redir! > %s", logfile))
-		vim.cmd("silent! messages")
-		vim.cmd("silent! redir END")
 	end,
 })
