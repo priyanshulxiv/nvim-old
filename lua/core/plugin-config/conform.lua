@@ -1,9 +1,10 @@
 require("conform").setup({
-	format_on_save = {
-		async = false,
-		timeout_ms = 500,
-		lsp_format = "fallback",
-	},
+	format_on_save = function(bufnr)
+		if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+			return
+		end
+		return { async = false, timeout_ms = 500, lsp_format = "fallback" }
+	end,
 	formatters_by_ft = {
 		lua = { "stylua" },
 		javascript = { "prettier" },
@@ -14,3 +15,21 @@ require("conform").setup({
 		markdown = { "prettier" },
 	},
 })
+
+-- Custom commands to toggle format on save: FormatEnable, FormatDisable, FormatDisable! (for current buffer)
+vim.api.nvim_create_user_command("FormatDisable", function(args)
+	if args.bang then
+		vim.b.disable_autoformat = true
+		print("Autoformat on save disabled for the current buffer.")
+	else
+		vim.g.disable_autoformat = true
+		print("Autoformat on save disabled globally.")
+	end
+end, {
+	bang = true,
+})
+vim.api.nvim_create_user_command("FormatEnable", function()
+	vim.b.disable_autoformat = false
+	vim.g.disable_autoformat = false
+	print("Autoformat on save enabled.")
+end, {})
