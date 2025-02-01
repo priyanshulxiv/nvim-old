@@ -10,11 +10,11 @@ require("gitsigns").setup({
 	},
 	signs_staged_enable = false,
 	preview_config = {
-		border = "none",
+		border = "single",
 		style = "minimal",
 		relative = "cursor",
-		row = 0,
-		col = 1,
+		row = 1,
+		col = 0,
 	},
 })
 
