@@ -17,15 +17,28 @@ require("mason-lspconfig").setup({
 	},
 })
 
-local langservers = {
-	"html",
-	"cssls",
-	"clangd",
-	"ts_ls",
-	"pyright",
-	-- "csharp_ls",
-	"intelephense",
-}
+local signs = { Error = "E ", Warn = "W ", Hint = "H ", Info = "I " }
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = true,
+	underline = true,
+	update_in_insert = true,
+	severity_sort = true,
+	float = {
+		focusable = true,
+		style = "minimal",
+		border = "single",
+		source = "always",
+		header = "",
+		prefix = "",
+		suffix = "",
+	},
+})
 
 local capabilities_ = vim.lsp.protocol.make_client_capabilities()
 capabilities_.textDocument.completion.completionItem.snippetSupport = true
@@ -43,7 +56,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, bufopts)
 	-- Diagnostic
-	vim.keymap.set("n", "<leader>le", vim.diagnostic.open_float, bufopts)
+	vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, bufopts)
 	vim.keymap.set("n", "]d", function()
 		vim.diagnostic.goto_next({ float = false })
 	end, bufopts)
@@ -52,6 +65,16 @@ local on_attach = function(client, bufnr)
 	end, bufopts)
 end
 local capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities_)
+
+local langservers = {
+	"html",
+	"cssls",
+	"clangd",
+	"ts_ls",
+	"pyright",
+	-- "csharp_ls",
+	"intelephense",
+}
 
 for _, server in ipairs(langservers) do
 	require("lspconfig")[server].setup({
