@@ -43,11 +43,7 @@ cmp.setup({
 	},
 })
 
--- To change the color for completion menu and diagonistics (Necessary for > Nvim 0.10)
-vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#221f22" })
-
--- TO enable snippets of html in php
+-- Enables snippets of html in mentioned filetypes
 require("luasnip").filetype_extend("javascriptreact", { "html" })
 require("luasnip").filetype_extend("typescriptreact", { "html" })
 require("luasnip").filetype_extend("php", { "html" })
