@@ -1,22 +1,3 @@
-require("mason").setup()
-require("mason-lspconfig").setup({
-	ensure_installed = {
-		"lua_ls",
-		"ts_ls",
-		"clangd",
-		-- "csharp_ls",
-		"html",
-		"cssls",
-		"intelephense",
-		"emmet_language_server",
-		"pyright",
-	},
-	lazy = false,
-	opts = {
-		auto_install = true,
-	},
-})
-
 local signs = { Error = "E ", Warn = "W ", Hint = "H ", Info = "I " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
@@ -97,6 +78,7 @@ require("lspconfig").lua_ls.setup({
 		},
 	},
 })
+
 require("lspconfig").emmet_language_server.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -112,11 +94,5 @@ require("lspconfig").emmet_language_server.setup({
 		"scss",
 		"typescriptreact",
 		"php",
-	},
-})
-require("mason-tool-installer").setup({
-	ensure_installed = {
-		"prettier",
-		"stylua",
 	},
 })
