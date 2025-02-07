@@ -1,3 +1,14 @@
+local border = {
+	{ "🭽", "FloatBorder" },
+	{ "▔", "FloatBorder" },
+	{ "🭾", "FloatBorder" },
+	{ "▕", "FloatBorder" },
+	{ "🭿", "FloatBorder" },
+	{ "▁", "FloatBorder" },
+	{ "🭼", "FloatBorder" },
+	{ "▏", "FloatBorder" },
+}
+
 require("gitsigns").setup({
 	update_debounce = 0,
 	signs = {
@@ -10,7 +21,7 @@ require("gitsigns").setup({
 	},
 	signs_staged_enable = false,
 	preview_config = {
-		border = "single",
+		border = border,
 		style = "minimal",
 		relative = "cursor",
 		row = 1,
