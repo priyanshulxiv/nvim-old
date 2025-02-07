@@ -4,6 +4,17 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
+local border = {
+	{ "🭽", "FloatBorder" },
+	{ "▔", "FloatBorder" },
+	{ "🭾", "FloatBorder" },
+	{ "▕", "FloatBorder" },
+	{ "🭿", "FloatBorder" },
+	{ "▁", "FloatBorder" },
+	{ "🭼", "FloatBorder" },
+	{ "▏", "FloatBorder" },
+}
+
 vim.diagnostic.config({
 	virtual_text = true,
 	signs = true,
@@ -13,7 +24,7 @@ vim.diagnostic.config({
 	float = {
 		focusable = true,
 		style = "minimal",
-		border = "single",
+		border = border,
 		source = "always",
 		header = "",
 		prefix = "",
@@ -57,16 +68,23 @@ local langservers = {
 	"intelephense",
 }
 
+local handlers = {
+	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+}
+
 for _, server in ipairs(langservers) do
 	require("lspconfig")[server].setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
+		handlers = handlers,
 	})
 end
 
 require("lspconfig").lua_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	handlers = handlers,
 	settings = {
 		Lua = {
 			diagnostics = {
@@ -82,6 +100,7 @@ require("lspconfig").lua_ls.setup({
 require("lspconfig").emmet_language_server.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	handlers = handlers,
 	filetypes = {
 		"css",
 		"eruby",
