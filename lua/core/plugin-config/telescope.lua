@@ -31,6 +31,9 @@ require("telescope").setup({
 	},
 })
 
+-- Load fzf extension for telescope
+require("telescope").load_extension("fzf")
+
 -- Keymaps
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { silent = true })
 vim.keymap.set("n", "<leader>ft", builtin.live_grep, { silent = true })
