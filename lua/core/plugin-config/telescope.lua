@@ -4,7 +4,7 @@ local builtin = require("telescope.builtin")
 require("telescope").setup({
 	pickers = {
 		live_grep = {
-			file_ignore_patterns = { "node_modules", "%.git/", ".venv" },
+			file_ignore_patterns = { "node_modules", ".git", ".venv" },
 			additional_args = function(_)
 				return { "--hidden" }
 			end,
