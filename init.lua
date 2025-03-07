@@ -12,12 +12,17 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Core files
 require("core.options")
 require("core.keymaps")
 require("core.autocommands")
+
+-- Extra utilities
 require("core.extras.cmd-persistent")
 require("core.extras.quickfix")
 require("core.extras.session")
 require("core.extras.vim-log")
+
+-- Plugins
 require("core.plugins")
 require("core.plugin-config")
