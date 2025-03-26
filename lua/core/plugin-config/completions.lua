@@ -5,6 +5,8 @@ require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup({
 	mapping = cmp.mapping.preset.insert({
+		["<C-u>"] = cmp.mapping.scroll_docs(-4),
+		["<C-d>"] = cmp.mapping.scroll_docs(4),
 		["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
 		["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
 		["<C-Space>"] = cmp.mapping.complete(),
