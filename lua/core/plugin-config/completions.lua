@@ -1,5 +1,4 @@
 local cmp = require("cmp")
-local lspkind = require("lspkind")
 local luasnip = require("luasnip")
 
 -- Load Friendly Snippets
@@ -15,7 +14,7 @@ cmp.setup({
 		["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.abort(),
-		["<Tab>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		["<Tab>"] = cmp.mapping.confirm({ select = false }),
 	}),
 	completion = {
 		completeopt = "menu,menuone",
@@ -33,17 +32,56 @@ cmp.setup({
 		{ name = "nvim_lua" },
 	},
 	formatting = {
-		format = lspkind.cmp_format({
-			with_text = true,
-			maxwidth = 50,
-			menu = {
+		fields = { "abbr", "kind", "menu" },
+		format = function(entry, vim_item)
+			local kind_icons = {
+				Text = "󰉿",
+				Method = "󰆧",
+				Function = "󰊕",
+				Constructor = "",
+				Field = "󰜢",
+				Variable = "󰀫",
+				Class = "󰠱",
+				Interface = "",
+				Module = "",
+				Property = "󰜢",
+				Unit = "󰑭",
+				Value = "󰎠",
+				Enum = "",
+				Keyword = "󰌋",
+				Snippet = "",
+				Color = "󰏘",
+				File = "󰈙",
+				Reference = "󰈇",
+				Folder = "󰉋",
+				EnumMember = "",
+				Constant = "󰏿",
+				Struct = "󰙅",
+				Event = "",
+				Operator = "󰆕",
+				TypeParameter = "󰊄",
+			}
+
+			-- vim_item.abbr = vim_item.abbr:match("[^(]+")
+			vim_item.kind = kind_icons[vim_item.kind] .. " " .. vim_item.kind
+			vim_item.menu = ({
 				buffer = "[BUF]",
 				nvim_lsp = "[LSP]",
 				nvim_lua = "[API]",
-				path = "[PATH]",
 				luasnip = "[SNIP]",
-			},
-		}),
+				path = "[PATH]",
+			})[entry.source.name]
+
+			if
+				entry.source.name == "nvim_lsp"
+				and entry.completion_item.labelDetails
+				and entry.completion_item.labelDetails.detail
+			then
+				vim_item.menu = vim_item.menu .. entry.completion_item.labelDetails.detail
+			end
+
+			return vim_item
+		end,
 	},
 })
 
