@@ -46,6 +46,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 		"lspinfo",
 		"checkhealth",
 		"qf",
+		"terminal",
 	},
 	callback = function()
 		vim.api.nvim_buf_set_keymap(0, "n", "q", "<CMD>close<CR>", { noremap = true, silent = true })
@@ -59,6 +60,7 @@ vim.api.nvim_create_autocmd("CmdWinEnter", {
 	callback = function()
 		vim.api.nvim_buf_set_keymap(0, "n", "q", "<CMD>close<CR>", { noremap = true, silent = true })
 		vim.api.nvim_buf_set_keymap(0, "n", "<ESC>", "<CMD>close<CR>", { noremap = true, silent = true })
+		vim.cmd("setlocal nobuflisted")
 	end,
 })
 
@@ -67,10 +69,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
 	pattern = "term://*",
 	callback = function()
 		if vim.opt.buftype:get() == "terminal" then
-			vim.opt_local.number = false
-			vim.opt_local.relativenumber = false
-			vim.opt_local.cursorline = false
-			vim.opt_local.signcolumn = "no"
 			vim.opt.filetype = "terminal"
 			vim.cmd.startinsert() -- Start in insert mode
 		end

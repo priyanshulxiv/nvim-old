@@ -19,9 +19,7 @@ require("core.autocommands")
 
 -- Extra utilities
 require("core.extras.cmd-persistent")
-require("core.extras.quickfix")
 require("core.extras.session")
-require("core.extras.vim-log")
 
 -- Plugins
 require("core.plugins")
