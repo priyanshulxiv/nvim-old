@@ -38,12 +38,6 @@ require("lazy").setup({
 		build = "pnpm add -g live-server",
 		cmd = { "LiveServerStart", "LiveServerStop" },
 	},
-	-- Trouble
-	{
-		"folke/trouble.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = {},
-	},
 
 	-- NvimTree
 	{
