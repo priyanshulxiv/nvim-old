@@ -14,7 +14,6 @@ require("nvim-tree").setup({
 		group_empty = false,
 		icons = {
 			diagnostics_placement = "before",
-
 			glyphs = {
 				git = {
 					unstaged = "U",
