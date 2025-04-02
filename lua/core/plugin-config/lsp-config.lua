@@ -85,7 +85,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 				border = border,
 			})
 		end, bufopts)
-		vim.keymap.set("i", "<C-h>", function()
+		vim.keymap.set("i", "<C-k>", function()
 			vim.lsp.buf.signature_help({
 				border = border,
 			})
