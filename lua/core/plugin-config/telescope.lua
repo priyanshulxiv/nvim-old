@@ -4,7 +4,6 @@ local builtin = require("telescope.builtin")
 require("telescope").setup({
 	pickers = {
 		live_grep = {
-			file_ignore_patterns = { "node_modules", ".git", ".venv" },
 			additional_args = function(_)
 				return { "--hidden" }
 			end,
@@ -14,6 +13,7 @@ require("telescope").setup({
 		},
 	},
 	defaults = {
+		file_ignore_patterns = { "node_modules", ".git/", ".cache", "%.o", "%.out", "%.exe" },
 		mappings = {
 			i = { -- Insert mode mappings
 				["<C-j>"] = actions.move_selection_next,
@@ -41,6 +41,7 @@ vim.keymap.set("n", "<leader>fc", builtin.colorscheme, { silent = true })
 -- Telescope find files without preview
 vim.keymap.set("n", "<leader>fp", function()
 	builtin.find_files({
+		hidden = true,
 		previewer = false,
 	})
 end, { silent = true })
@@ -49,8 +50,6 @@ end, { silent = true })
 vim.keymap.set("n", "<leader>fd", function()
 	builtin.find_files({
 		hidden = true,
-		file_ignore_patterns = { "node_modules", ".git", ".venv" },
-		previewer = false,
 	})
 end, { silent = true })
 
