@@ -35,12 +35,12 @@ vim.diagnostic.config({
 
 -- Capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.semanticTokens.multilineTokenSupport = true
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.foldingRange = {
 	dynamicRegistration = true,
 	lineFoldingOnly = true,
 }
-capabilities.textDocument.semanticTokens.multilineTokenSupport = true
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)

@@ -5,4 +5,5 @@ require("gruvbox").setup({
 		NormalFloat = { bg = "#32302f" },
 	},
 })
+-- Enabling colorscheme
 vim.cmd("colorscheme gruvbox")
