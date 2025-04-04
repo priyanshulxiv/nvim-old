@@ -118,11 +118,6 @@ end
 require("lspconfig").lua_ls.setup({
 	capabilities = capabilities,
 	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { "vim", "opt", "cmd" },
-			},
-		},
 		runtime = {
 			version = "LuaJIT",
 		},
