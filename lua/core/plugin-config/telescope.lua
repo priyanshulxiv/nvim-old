@@ -13,14 +13,14 @@ require("telescope").setup({
 		},
 	},
 	defaults = {
-		file_ignore_patterns = { "node_modules", ".git/", ".cache", "%.o", "%.out", "%.exe" },
+		file_ignore_patterns = { "node_modules", "%.git[\\/]", "%.cache", "%.o", "%.out", "%.exe" }, -- [\\/] matches either / or \ in paths, necessary for windows
 		mappings = {
-			i = { -- Insert mode mappings
+			i = {
 				["<C-j>"] = actions.move_selection_next,
 				["<C-k>"] = actions.move_selection_previous,
 				["<Tab>"] = actions.select_default,
 			},
-			n = { -- Normal mode mappings
+			n = {
 				["<Tab>"] = actions.select_default,
 			},
 		},
