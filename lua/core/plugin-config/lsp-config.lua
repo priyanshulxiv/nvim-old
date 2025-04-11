@@ -101,6 +101,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
+-- LSP references
+-- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/configs
+
 -- LSPs config for languages
 local langservers = {
 	"clangd",
