@@ -19,9 +19,9 @@ vim.keymap.set("n", "<leader>ro", function()
 	vim.bo.modifiable = not modifiable
 
 	if vim.bo.modifiable then
-		print("[Modifiable]")
+		vim.notify("[Modifiable]", vim.log.levels.INFO)
 	else
-		print("[Read only]")
+		vim.notify("[Read only]", vim.log.levels.WARN)
 	end
 end, { silent = true })
 
