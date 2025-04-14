@@ -101,7 +101,5 @@ vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
 	end
 end, { silent = true })
 
--- Enable snippets of html in mentioned filetypes
-luasnip.filetype_extend("javascriptreact", { "html" })
-luasnip.filetype_extend("typescriptreact", { "html" })
+-- luasnip.filetype_extend("destination", { "source1", "source2", ... })
 luasnip.filetype_extend("php", { "html" })
