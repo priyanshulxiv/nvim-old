@@ -20,6 +20,7 @@ require("core.autocommands")
 -- Extra utilities
 require("core.extras.cmd-persistent")
 require("core.extras.session")
+require("core.extras.view")
 
 -- Plugins
 require("core.plugins")
