@@ -61,7 +61,6 @@ require("lazy").setup({
 
 	-- LSP and Mason
 	"williamboman/mason.nvim",
-	-- "williamboman/mason-lspconfig.nvim",
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	"neovim/nvim-lspconfig",
 
