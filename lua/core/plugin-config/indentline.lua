@@ -1,17 +1,17 @@
 require("ibl").setup({
-	indent = {
-		char = "▏",
-		highlight = { "IblWhitespace" },
-	},
-	exclude = { filetypes = { "markdown", "text" } },
-	scope = {
-		enabled = true,
-		show_start = false,
-		show_end = false,
-		highlight = { "IblScope" },
-	},
+  indent = {
+    char = "▏",
+    highlight = { "IblWhitespace" },
+  },
+  exclude = { filetypes = { "markdown", "text" } },
+  scope = {
+    enabled = true,
+    show_start = false,
+    show_end = false,
+    highlight = { "IblScope" },
+  },
 
-	-- Highlights
-	vim.api.nvim_set_hl(0, "IblWhitespace", { fg = "#403e41" }),
-	vim.api.nvim_set_hl(0, "IblScope", { fg = "#5b595c" }),
+  -- Highlights
+  vim.api.nvim_set_hl(0, "IblWhitespace", { fg = "#403e41" }),
+  vim.api.nvim_set_hl(0, "IblScope", { fg = "#5b595c" }),
 })

@@ -1,25 +1,25 @@
 require("bufferline").setup({
-	options = {
-		event = "VimEnter",
-		always_show_bufferline = false,
-		offsets = {
-			{
-				filetype = "NvimTree",
-				text = "File Explorer",
-				text_align = "center",
-				padding = 1,
-			},
-		},
-		sort_by = "insert_at_end",
+  options = {
+    event = "VimEnter",
+    always_show_bufferline = false,
+    offsets = {
+      {
+        filetype = "NvimTree",
+        text = "File Explorer",
+        text_align = "center",
+        padding = 1,
+      },
+    },
+    sort_by = "insert_at_end",
 
-		-- Diagnostics
-		diagnostics = "nvim_lsp",
-		diagnostics_update_on_event = true,
-		diagnostics_indicator = function(count, level)
-			local icon = level:match("error") and "E" or "W"
-			return icon .. count
-		end,
-	},
+    -- Diagnostics
+    diagnostics = "nvim_lsp",
+    diagnostics_update_on_event = true,
+    diagnostics_indicator = function(count, level)
+      local icon = level:match("error") and "E" or "W"
+      return icon .. count
+    end,
+  },
 })
 
 -- Navigate Buffer

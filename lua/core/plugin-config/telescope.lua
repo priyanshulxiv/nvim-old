@@ -2,29 +2,29 @@ local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
 
 require("telescope").setup({
-	pickers = {
-		live_grep = {
-			additional_args = function(_)
-				return { "--hidden" }
-			end,
-		},
-		colorscheme = {
-			enable_preview = true,
-		},
-	},
-	defaults = {
-		file_ignore_patterns = { "node_modules", "%.git[\\/]", "%.cache", "%.o", "%.out", "%.exe" }, -- [\\/] matches either / or \ in paths, necessary for windows
-		mappings = {
-			i = {
-				["<C-j>"] = actions.move_selection_next,
-				["<C-k>"] = actions.move_selection_previous,
-				["<Tab>"] = actions.select_default,
-			},
-			n = {
-				["<Tab>"] = actions.select_default,
-			},
-		},
-	},
+  pickers = {
+    live_grep = {
+      additional_args = function(_)
+        return { "--hidden" }
+      end,
+    },
+    colorscheme = {
+      enable_preview = true,
+    },
+  },
+  defaults = {
+    file_ignore_patterns = { "node_modules", "%.git[\\/]", "%.cache", "%.o", "%.out", "%.exe" }, -- [\\/] matches either / or \ in paths, necessary for windows
+    mappings = {
+      i = {
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+        ["<Tab>"] = actions.select_default,
+      },
+      n = {
+        ["<Tab>"] = actions.select_default,
+      },
+    },
+  },
 })
 
 -- Load fzf extension for telescope
@@ -40,17 +40,17 @@ vim.keymap.set("n", "<leader>fc", builtin.colorscheme)
 
 -- Telescope find files without preview
 vim.keymap.set("n", "<leader>fp", function()
-	builtin.find_files({
-		hidden = true,
-		previewer = false,
-	})
+  builtin.find_files({
+    hidden = true,
+    previewer = false,
+  })
 end)
 
 -- Telescope find files inside dotfiles
 vim.keymap.set("n", "<leader>fd", function()
-	builtin.find_files({
-		hidden = true,
-	})
+  builtin.find_files({
+    hidden = true,
+  })
 end)
 
 -- Telescope search currently selected text

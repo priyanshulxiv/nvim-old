@@ -1,32 +1,32 @@
 local border = {
-	{ "🭽", "FloatBorder" },
-	{ "▔", "FloatBorder" },
-	{ "🭾", "FloatBorder" },
-	{ "▕", "FloatBorder" },
-	{ "🭿", "FloatBorder" },
-	{ "▁", "FloatBorder" },
-	{ "🭼", "FloatBorder" },
-	{ "▏", "FloatBorder" },
+  { "🭽", "FloatBorder" },
+  { "▔", "FloatBorder" },
+  { "🭾", "FloatBorder" },
+  { "▕", "FloatBorder" },
+  { "🭿", "FloatBorder" },
+  { "▁", "FloatBorder" },
+  { "🭼", "FloatBorder" },
+  { "▏", "FloatBorder" },
 }
 
 require("gitsigns").setup({
-	update_debounce = 0,
-	signs = {
-		add = { text = "a" },
-		change = { text = "c" },
-		delete = { text = "d" },
-		topdelete = { text = "tp" },
-		changedelete = { text = "cd" },
-		untracked = { text = "u" },
-	},
-	signs_staged_enable = false,
-	preview_config = {
-		border = border,
-		style = "minimal",
-		relative = "cursor",
-		row = 1,
-		col = 0,
-	},
+  update_debounce = 0,
+  signs = {
+    add = { text = "a" },
+    change = { text = "c" },
+    delete = { text = "d" },
+    topdelete = { text = "tp" },
+    changedelete = { text = "cd" },
+    untracked = { text = "u" },
+  },
+  signs_staged_enable = false,
+  preview_config = {
+    border = border,
+    style = "minimal",
+    relative = "cursor",
+    row = 1,
+    col = 0,
+  },
 })
 
 -- Keymaps

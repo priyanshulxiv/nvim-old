@@ -1,5 +1,4 @@
 {
-  "diagnostics.disable": ["trailing-space", "redundant-parameter"],
-  "diagnostics.globals": ["vim", "opt", "cmd", "opts"]
+  "runtime.version": "LuaJIT",
+  "diagnostics.globals": ["vim"]
 }
-
