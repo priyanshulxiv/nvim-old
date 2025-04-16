@@ -108,9 +108,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- LSPs config for languages
 local langservers = {
   "clangd",
-  "ts_ls",
-  "html",
   "cssls",
+  "html",
+  "lua_ls",
+  "ts_ls",
 }
 
 for _, server in ipairs(langservers) do
@@ -118,15 +119,6 @@ for _, server in ipairs(langservers) do
     capabilities = capabilities,
   })
 end
-
-require("lspconfig").lua_ls.setup({
-  capabilities = capabilities,
-  settings = {
-    runtime = {
-      version = "LuaJIT",
-    },
-  },
-})
 
 require("lspconfig").emmet_language_server.setup({
   capabilities = capabilities,
