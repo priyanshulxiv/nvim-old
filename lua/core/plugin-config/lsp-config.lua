@@ -93,7 +93,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end, bufopts)
 
     -- Diagnostic
-    vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, bufopts)
+    vim.keymap.set("n", "grd", vim.diagnostic.open_float, bufopts)
     vim.keymap.set("n", "grq", vim.diagnostic.setqflist, bufopts)
 
     -- Defaults
