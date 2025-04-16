@@ -110,7 +110,6 @@ local langservers = {
   "clangd",
   "cssls",
   "html",
-  "lua_ls",
   "ts_ls",
 }
 
@@ -119,6 +118,18 @@ for _, server in ipairs(langservers) do
     capabilities = capabilities,
   })
 end
+
+require("lspconfig").lua_ls.setup({
+  capabilities = capabilities,
+  settings = {
+    runtime = {
+      version = "LuaJIT",
+    },
+    telemetry = {
+      enable = false,
+    },
+  },
+})
 
 require("lspconfig").emmet_language_server.setup({
   capabilities = capabilities,
