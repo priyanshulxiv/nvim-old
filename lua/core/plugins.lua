@@ -1,6 +1,5 @@
 require("lazy").setup({
   "windwp/nvim-autopairs", -- Autopairs
-  "windwp/nvim-ts-autotag", -- Autotag
   "norcalli/nvim-colorizer.lua", -- Nvim-Colorizer
   "lewis6991/gitsigns.nvim", -- Gitsigns
   "stevearc/conform.nvim", -- Conform (Formatter)
@@ -26,17 +25,6 @@ require("lazy").setup({
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
-  -- Comment
-  {
-    "numToStr/Comment.nvim",
-    dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
-  },
-  -- Live Server
-  {
-    "barrett-ruth/live-server.nvim",
-    build = "pnpm add -g live-server",
-    cmd = { "LiveServerStart", "LiveServerStop" },
   },
 
   -- NvimTree
