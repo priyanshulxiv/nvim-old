@@ -21,6 +21,7 @@ require("core.autocommands")
 require("core.extras.cwd-persistent")
 require("core.extras.session")
 require("core.extras.view")
+require("core.extras.yank-ring")
 
 -- Plugins
 require("core.plugins")
