@@ -52,7 +52,7 @@ vim.api.nvim_create_autocmd("CmdWinEnter", {
   end,
 })
 
--- Hide some UI elements in terminal inside vim
+-- Set filetype=terminal for terminal windows/buffers
 vim.api.nvim_create_autocmd("TermOpen", {
   pattern = "term://*",
   callback = function()
