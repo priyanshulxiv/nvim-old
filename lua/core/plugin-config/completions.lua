@@ -34,6 +34,7 @@ cmp.setup({
   formatting = {
     fields = { "abbr", "kind", "menu" },
     format = function(entry, vim_item)
+      -- Completion Icons
       local kind_icons = {
         Text = "󰉿",
         Method = "󰆧",
@@ -61,9 +62,22 @@ cmp.setup({
         Operator = "󰆕",
         TypeParameter = "󰊄",
       }
-      -- vim_item.abbr = vim_item.abbr:match("[^(]+") -- [[ fun(foo, bar) -> fun ]]
-      -- vim_item.abbr = vim_item.abbr:gsub("%b()", "()") -- [[ -> fun(foo, bar) -> fun() ]]
+
+      -- Abbr label and detail
+      if
+        entry.source.name == "nvim_lsp"
+        and entry.completion_item.labelDetails
+        and entry.completion_item.labelDetails.detail
+      then
+        vim_item.abbr = entry.completion_item.label .. entry.completion_item.labelDetails.detail
+        -- vim_item.abbr = vim_item.abbr:gsub("%b()", "") -- fun(foo, bar) -> fun
+        -- vim_item.abbr = vim_item.abbr:gsub("%b()", "()") -- fun(foo, bar) -> fun()
+      end
+
+      -- Kind icons and Kind detail
       vim_item.kind = kind_icons[vim_item.kind] .. " " .. vim_item.kind
+
+      -- Sources
       vim_item.menu = ({
         buffer = "[BUF]",
         nvim_lsp = "[LSP]",
@@ -71,14 +85,6 @@ cmp.setup({
         luasnip = "[SNIP]",
         path = "[PATH]",
       })[entry.source.name]
-
-      if
-        entry.source.name == "nvim_lsp"
-        and entry.completion_item.labelDetails
-        and entry.completion_item.labelDetails.detail
-      then
-        vim_item.menu = vim_item.menu .. entry.completion_item.labelDetails.detail
-      end
 
       return vim_item
     end,
