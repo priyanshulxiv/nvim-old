@@ -10,7 +10,7 @@ local border = {
 }
 
 require("gitsigns").setup({
-  update_debounce = 0,
+  update_debounce = 100,
   signs = {
     add = { text = "a" },
     change = { text = "c" },
