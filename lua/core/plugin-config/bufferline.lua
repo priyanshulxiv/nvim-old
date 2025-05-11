@@ -23,9 +23,9 @@ require("bufferline").setup({
 })
 
 -- Navigate Buffer
-vim.keymap.set("n", "E", "<CMD>BufferLineCycleNext<CR>", { silent = true })
-vim.keymap.set("n", "Q", "<CMD>BufferLineCyclePrev<CR>", { silent = true })
+vim.keymap.set("n", "L", "<CMD>BufferLineCycleNext<CR>", { silent = true })
+vim.keymap.set("n", "H", "<CMD>BufferLineCyclePrev<CR>", { silent = true })
 
 -- Reorder Buffers
-vim.keymap.set("n", "<leader>E", "<CMD>BufferLineMoveNext<CR>", { silent = true })
-vim.keymap.set("n", "<leader>Q", "<CMD>BufferLineMovePrev<CR>", { silent = true })
+vim.keymap.set("n", "<leader>L", "<CMD>BufferLineMoveNext<CR>", { silent = true })
+vim.keymap.set("n", "<leader>H", "<CMD>BufferLineMovePrev<CR>", { silent = true })
