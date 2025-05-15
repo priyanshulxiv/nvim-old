@@ -1,8 +1,5 @@
 -- Autopairs
 require("nvim-autopairs").setup({
-  options = {
-    event = "InsertEnter",
-  },
   check_ts = true,
 })
 -- If you want to automatically insert `(` after selecting function or method item
