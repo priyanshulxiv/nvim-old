@@ -1,7 +1,12 @@
-require("bufferline").setup({
+local bufferline = require("bufferline")
+bufferline.setup({
   options = {
-    event = "VimEnter",
     always_show_bufferline = false,
+    sort_by = "insert_at_end",
+    style_preset = {
+      bufferline.style_preset.no_italic,
+      bufferline.style_preset.no_bold,
+    },
     offsets = {
       {
         filetype = "NvimTree",
@@ -10,7 +15,6 @@ require("bufferline").setup({
         padding = 1,
       },
     },
-    sort_by = "insert_at_end",
 
     -- Diagnostics
     diagnostics = "nvim_lsp",
