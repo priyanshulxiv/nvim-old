@@ -104,6 +104,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/configs
 
 -- LSPs config for languages
+local lspconfig = require("lspconfig")
 local langservers = {
   "clangd",
   "cssls",
@@ -112,12 +113,12 @@ local langservers = {
 }
 
 for _, server in ipairs(langservers) do
-  require("lspconfig")[server].setup({
+  lspconfig[server].setup({
     capabilities = capabilities,
   })
 end
 
-require("lspconfig").lua_ls.setup({
+lspconfig.lua_ls.setup({
   capabilities = capabilities,
   settings = {
     runtime = {
@@ -129,7 +130,7 @@ require("lspconfig").lua_ls.setup({
   },
 })
 
-require("lspconfig").emmet_language_server.setup({
+lspconfig.emmet_language_server.setup({
   capabilities = capabilities,
   filetypes = {
     "css",
