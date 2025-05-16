@@ -19,7 +19,6 @@ require("lazy").setup({
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
-    opts = {},
   },
   -- Lualine
   {
@@ -48,21 +47,28 @@ require("lazy").setup({
   },
 
   -- LSP and Mason
-  "williamboman/mason.nvim",
-  "WhoIsSethDaniel/mason-tool-installer.nvim",
   "neovim/nvim-lspconfig",
+  {
+    "williamboman/mason.nvim",
+    dependencies = {
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+    },
+  },
 
   -- Completion
-  "hrsh7th/nvim-cmp",
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/cmp-buffer",
-  "hrsh7th/cmp-path",
-  "hrsh7th/cmp-nvim-lua",
-  "saadparwaiz1/cmp_luasnip",
-
-  -- Snippets
-  "L3MON4D3/LuaSnip",
-  "rafamadriz/friendly-snippets",
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-nvim-lua",
+      "saadparwaiz1/cmp_luasnip",
+      -- Snippets
+      "L3MON4D3/LuaSnip",
+      "rafamadriz/friendly-snippets",
+    },
+  },
 }, {
   checker = {
     enabled = true,
