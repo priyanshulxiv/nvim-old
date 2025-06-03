@@ -105,22 +105,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/configs
 
 -- LSPs config for languages
-local lspconfig = require("lspconfig")
-local langservers = {
-  "clangd",
-  "cssls",
-  "html",
-  "ts_ls",
-}
-
-for _, server in ipairs(langservers) do
-  lspconfig[server].setup({
-    capabilities = capabilities,
-  })
-end
-
-lspconfig.lua_ls.setup({
+vim.lsp.config("*", {
   capabilities = capabilities,
+})
+
+-- Language specific config
+vim.lsp.config("lua_ls", {
   settings = {
     runtime = {
       version = "LuaJIT",
@@ -131,8 +121,7 @@ lspconfig.lua_ls.setup({
   },
 })
 
-lspconfig.emmet_language_server.setup({
-  capabilities = capabilities,
+vim.lsp.config("emmet_language_server", {
   filetypes = {
     "css",
     "eruby",
@@ -146,4 +135,14 @@ lspconfig.emmet_language_server.setup({
     "typescriptreact",
     "php",
   },
+})
+
+-- Enabling LSPs
+vim.lsp.enable({
+  "clangd",
+  "cssls",
+  "html",
+  "ts_ls",
+  "lua_ls",
+  "emmet_language_server",
 })
