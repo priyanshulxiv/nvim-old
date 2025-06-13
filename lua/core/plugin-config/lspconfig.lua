@@ -94,6 +94,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- Diagnostic
     vim.keymap.set("n", "grd", vim.diagnostic.open_float, bufopts)
     vim.keymap.set("n", "grq", vim.diagnostic.setqflist, bufopts)
+    vim.keymap.set("n", "grg", function()
+      local state = vim.diagnostic.is_enabled({ bufnr = bufnr })
+      vim.diagnostic.enable(not state, { bufnr = bufnr })
+
+      if not state then
+        vim.notify("Diagnostics enabled for current buffer.", vim.log.levels.INFO)
+      else
+        vim.notify("Diagnostics disabled for current buffer.", vim.log.levels.INFO)
+      end
+    end, { buffer = bufnr })
 
     -- Defaults
     -- [d - jump to previous diagnostic of current buffer
